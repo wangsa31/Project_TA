@@ -1,0 +1,44 @@
+.form {
+    width: 100%;
+    min-height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: center;
+    align-items: flex-start;
+}
+
+.button {
+    width: 100%;
+    background-color: !important aqua;
+}
+
+.icons {
+    display: flex;
+    align-items: baseline;
+}
+.pr {
+    padding-right: 15px;
+}
+
+.button-register {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.font-sm {
+    font-size: 14px !important;
+}
+
+.alert-titles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+}
+
+
