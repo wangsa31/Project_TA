@@ -24,7 +24,7 @@
                 </h4>
 
                 <div >
-                     <a href="/karyawan/perhitungan/register" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>Tambah Nilai</a>
+                     <a href="/konversi/pdf" target="_blank" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>PDF</a>
                      <a href="/karyawan/hitung" class="icon btn btn-primary  waves-effect" style="padding:10px 20px 10px 20px; line-height: -10px;">Hitung</a>
                 </div>
                 <ul class="header-dropdown m-r--5">
@@ -41,24 +41,43 @@
                 </ul>
             </div>
             <div class="body table-responsive" style="overflow-x: auto;">
-                <table class="table table-condensed">
+                <table class="table table-condensed  dataTable js-exportable">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Karyawan</th>
+                            <th>Nama</th>
+                            <th>Departemen</th>
                             <th>Hasil</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $rank=[];?>
                         @foreach ( $nilai as $datas => $value)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$value->karyawan->nama_karyawan }}</td>
-                                <td>{{$data[$datas+0]}}</td>
-                            </tr>
+                        <?php 
+                            $rank[]=[
+                                "name"=> $value->karyawan->nama_karyawan,
+                                "value"=>$data[$datas],
+                                "departemen"=> $value->karyawan->departemen->nama_departemen
+                            ]
+                        ?>
                         @endforeach
+                        <?php 
+                        
+                        usort($rank,function($a,$b){
+                            return $b['value'] - $a['value'];
+                        })
+                        ?>
+                    @foreach ( $rank as $datas => $value)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$value['name']}}</td>
+                        <td>{{$value['departemen']}}</td>
+                        <td>{{$value['value']}}</td>
+                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
+               
             </div>
         </div>
     </div>
@@ -66,8 +85,9 @@
 @endsection
 
 @section('js')
+<script src="{{asset('assets/js/demo.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+    <!-- <script>
          $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             const url = $(this).attr('href');
@@ -87,6 +107,6 @@
                      }
                     })
 });
-    </script>
+</script> -->
 @endsection
 

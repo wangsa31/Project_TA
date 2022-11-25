@@ -57,6 +57,7 @@ Route::get('/login',[LoginLogout::class, 'Login'])->name('login');
         Route::get('/karyawan/perhitungan/register',[PerhitunganController::class,'PerhitunganRegister']);
         Route::get('/karyawan/{id}/hapus/perhitungan',[PerhitunganController::class,'PerhitunganHapus']);
         Route::get('/karyawan/hasil',[PerhitunganController::class,'HitungPost']);
+        Route::get('/konversi/pdf',[PerhitunganController::class,'CetakPdf']);
     });    
 
     Route::post('/karyawan/perhitungan',[PerhitunganController::class,'PerhitunganPost']);
