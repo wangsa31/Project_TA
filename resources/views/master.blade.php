@@ -25,7 +25,7 @@
 
     <!-- Morris Chart Css-->
     <link href="{{ asset('assets/plugins/morrisjs/morris.css') }}" rel="stylesheet" />
-     <!-- JQuery DataTable Css -->
+     
     
 
     <!-- Custom Css -->
@@ -564,7 +564,6 @@
 
     <!-- Custom Js -->
     <script src="{{ asset('assets/js/admin.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/index.js') }}"></script>
 
 
     <!-- Demo Js -->

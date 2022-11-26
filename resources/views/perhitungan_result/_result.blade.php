@@ -12,6 +12,12 @@
     Data Perhitungan
 @endsection
 
+@section('style_css')
+<link href="{{asset('assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+@endsection
+
+
+
 
 
 @section('content')
@@ -24,8 +30,7 @@
                 </h4>
 
                 <div >
-                     <a href="/konversi/pdf" target="_blank" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>PDF</a>
-                     <a href="/karyawan/hitung" class="icon btn btn-primary  waves-effect" style="padding:10px 20px 10px 20px; line-height: -10px;">Hitung</a>
+                     <a href="/konversi/pdf" target="_blank" class="icon btn btn-success  waves-effect">Unduh PDF</a>
                 </div>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -41,7 +46,7 @@
                 </ul>
             </div>
             <div class="body table-responsive" style="overflow-x: auto;">
-                <table class="table table-condensed  dataTable js-exportable">
+                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -87,6 +92,17 @@
 @section('js')
 <script src="{{asset('assets/js/demo.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
+
     <!-- <script>
          $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
