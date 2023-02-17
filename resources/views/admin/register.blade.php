@@ -9,7 +9,11 @@
 @endsection
 
 @section('title')
-    Data Admin
+    Data Pengguna
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Data Admin</a></li>
+        <li class="active">Tambah Pengguna</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -19,9 +23,8 @@
             <div class="col-sm-12">
                     <form action="/admin/register" method="POST">
                         @csrf
-                        <div class="text-center">Tambah Data Admin</div>
                         <div class="form-group">
-                            <h5>Name</h5>
+                            <h5>Nama</h5>
                              <div class="form-line">
                                  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="Username" />
                              </div>
@@ -32,7 +35,7 @@
                         <div class="form-group">
                            <h5>Email</h5>
                             <div class="form-line">
-                                <input type="text" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Username" />
+                                <input type="text" class="form-control  @error('email') is-invalid @enderror" name="email" placeholder="Email" />
                             </div>
                             @error('email')
                              <span class="text-danger">{{ $message }}</span>

@@ -9,12 +9,13 @@
 @endsection
 
 @section('title')
-    Data Departemen
+    DATA DEPARTEMEN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Departemen</a></li>
+        <li class="active">Tambah Departemen</li>
+    </ol>
 @endsection
-
-@section('notification'){
-
-}
 
 @section('content')
 <div class="card">
@@ -23,7 +24,6 @@
             <div class="col-sm-12">
                     <form action="/departemen/register" method="POST">
                         @csrf
-                        <div class="text-center">Tambah Data Departemen</div>
                         <div class="form-group">
                             <h5>Name</h5>
                              <div class="form-line">

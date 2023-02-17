@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nilai extends Model
+class Hasil extends Model
 {
     use HasFactory;
 
-    protected $table = 'nilai';
-    protected $fillable = ['karyawan_id','kriteria_1','kriteria_2','kriteria_3','kriteria_4','kriteria_5','kriteria_6','kriteria_7'];
+    protected $table = 'hasil';
+    protected $fillable = ['hasil_penilaian','tahun','karyawan_id'];
 
     public function karyawan()
     {

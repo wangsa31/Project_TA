@@ -84,7 +84,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">SPK PENILAIAN KINERJA KARYAWAN</a>
+                <a class="navbar-brand" href="index.html">HARRIS HOTEL SEMINYAK</a>
             </div>
             {{-- <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -290,7 +290,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
+                    <img src="{{ asset('assets/images/user.png') }}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> @yield('account')</div>
@@ -531,16 +531,16 @@
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.js') }} "></script>
 
     <!-- Select Plugin Js -->
-    <script src="{{ asset('assets/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-select/js/bootstrap-select.js') }} "></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
+    <script src=" {{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js') }} "></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="{{ asset('assets/plugins/node-waves/waves.js') }} "></script>
+    <script src="{{ asset('assets/plugins/node-waves/waves.js') }}"></script>
 
     <!-- Jquery CountTo Plugin Js -->
     <script src="{{ asset('assets/plugins/jquery-countto/jquery.countTo.js') }}"></script>
@@ -550,11 +550,11 @@
     <script src="{{ asset('assets/plugins/morrisjs/morris.js') }}"></script>
 
     <!-- ChartJs -->
-    <script src="{{ asset('assets/plugins/chartjs/Chart.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartjs/Chart.bundle.js') }} "></script>
 
     <!-- Flot Charts Plugin Js -->
-    <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.resize.js') }}"></script>
+    <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.js') }} "></script>
+    <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.resize.js') }} "></script>
     <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.categories.js') }}"></script>
     <script src="{{ asset('assets/plugins/flot-charts/jquery.flot.time.js') }}"></script>
@@ -567,7 +567,7 @@
 
 
     <!-- Demo Js -->
-    <script src="{{ asset('assets/js/demo.js') }}"></script>
+    <script src="{{asset('assets/js/demo.js')}}"></script>
     @include('sweetalert::alert')
    
 

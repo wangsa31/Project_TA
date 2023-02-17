@@ -9,7 +9,10 @@
 @endsection
 
 @section('title')
-    Data Pengguna
+    DATA PENGGUNA
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Data Pengguna</a></li>
+    </ol>
 @endsection
 
 @section('content')
@@ -17,10 +20,6 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h4>
-                    Data admin
-                </h4>
-
                 <div >
                      <a href="/admin/register" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>Tambah admin</a>
                 </div>
@@ -38,12 +37,12 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <table class="table table-condensed">
+                <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Username</th>
-                            <th>Password</th>
+                            <th>Email</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

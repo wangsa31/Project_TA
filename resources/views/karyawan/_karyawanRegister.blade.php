@@ -10,6 +10,11 @@
 
 @section('title')
     Data Karyawan
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Karyawan</a></li>
+        <li class="active">Tambah Karyawan</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -19,7 +24,6 @@
             <div class="col-sm-12">
                     <form action="/karyawan/register" method="POST">
                         @csrf
-                        <div class="text-center">Tambah Data Karyawan</div>
                         <div class="col-sm-6">
                                 <div class="form-group">
                                     <h5>Nama</h5>
@@ -85,7 +89,7 @@
                             <div class="form-group">
                                 <h5>Alamat</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('almt') is-invalid @enderror" name="almt" value="{{ old('almt') }}" placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('almt') is-invalid @enderror" name="almt" value="{{ old('almt') }}" placeholder="alamat" />
                                  </div>
                                  @error('almt')
                                     <span class="text-danger">{{ $message }}</span>

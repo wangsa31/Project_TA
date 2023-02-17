@@ -136,7 +136,7 @@ tr:nth-child(even) {
                       </div>
         
                       <div class="title">
-                            Hasil Perhitungan Penilaian Kinerja Karyawan <br> Priode 2022 & 2033
+                            Hasil Perhitungan Penilaian Kinerja Karyawan <br> Priode <?php echo date("Y");?> & <?php $nextYears = date("Y",strtotime("+1 year")); echo $nextYears;?>
                       </div>
                       <!-- <div class="img2">
                         <img src="harris_logo.png" alt="">

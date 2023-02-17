@@ -9,7 +9,11 @@
 @endsection
 
 @section('title')
-    Data Karyawan
+    DATA KARYAWAN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li class="active">Karyawan</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -17,10 +21,6 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h4>
-                    Data Karyawan
-                </h4>
-
                 <div >
                      <a href="/karyawan/register" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>Tambah karyawan</a>
                 </div>
@@ -38,11 +38,12 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <table class="table table-condensed">
+                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama Karyawan</th>
+                            <th>Departemen</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -51,6 +52,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$data->nama_karyawan}}</td>
+                                <td>{{$data->departemen->nama_departemen}}</td>
                                 <td class="d-flex">
                                     <a href="/karyawan/{{$data->id}}/detail" class="btn btn-primary  waves-effect">Detail</a>
                                     <a href="/karyawan/{{$data->id}}/ubah" class="btn btn-warning  waves-effect">Ubah</a>
@@ -68,8 +70,21 @@
 
 @section('js')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/js/demo.js')}}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
     <script>
-         $('.delete-confirm').on('click', function (event) {
+    $(document).ready(function(){
+        
+        $('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             const url = $(this).attr('href');
             const name = $(this).data('name');
@@ -87,6 +102,14 @@
                         window.location.href = url;
                      }
                     })
-});
+        });
+
+        $("#DataTables_Table_0_paginate").css("float","right")
+        $("#DataTables_Table_0_filter").css("float","right")
+        $("#DataTables_Table_0_length").css("float","left")
+        $("#DataTables_Table_0_info").css("float","left")
+
+    })
+        
     </script>
 @endsection

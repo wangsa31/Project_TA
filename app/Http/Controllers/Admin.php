@@ -27,6 +27,11 @@ class Admin extends Controller
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required','min:6'],
+        ],
+        [
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required'=> 'email tidak boleh kosong',
+            'password.required'=> 'password tidak boleh kosong'
         ]);
 
         $user = new User;
@@ -36,7 +41,7 @@ class Admin extends Controller
         
         $user->save();
         
-        return redirect('/dashboard')->with('success','Data berhasil dimasukan');
+        return redirect('/dashboard')->with('success','Data pengguna berhasil disimpan');
         
     }
 
@@ -51,6 +56,10 @@ class Admin extends Controller
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required','min:6'],
+        ],[
+            'name.required' => 'Nama tidak boleh kosong',
+            'email.required'=> 'email tidak boleh kosong',
+            'password.required'=> 'password tidak boleh kosong'
         ]);
 
         $user = User::find($request->id);
@@ -59,14 +68,14 @@ class Admin extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect('/dashboard')->with('success','Data berhasil diubah');
+        return redirect('/dashboard')->with('success','Data pengguna berhasil diubah');
 
     }
 
     Public function DeletePost($id){
         $user = User::find($id);
         $user->delete();
-        return redirect('/dashboard')->with('success','Data berhasil Dihapus');
+        return redirect('/dashboard')->with('success','Data pengguna berhasil Dihapus');
     }
 
 
@@ -89,8 +98,8 @@ class Admin extends Controller
             'depart_name' => ['required','regex:/^[a-zA-Z\s]+$/']
             ],
             [
-                'depart_name.required' => 'the field is required',
-                'depart_name.regex' => 'Invalid format the value',
+                'depart_name.required' => 'Nama departemen harus dimasukan',
+                'depart_name.regex' => 'Format nilai salah',
             ]
         );
 
@@ -98,7 +107,7 @@ class Admin extends Controller
         $deparrtemen = new Departemen;
         $deparrtemen->nama_departemen = $request->depart_name;
         $deparrtemen->save();
-        return redirect('/dashboard')->with('success','Data berhasil ditambahkan');
+        return redirect('/dashboard')->with('success','Data departemen berhasil disimpan');
     }
 
     public function DepartEdit($id){
@@ -112,8 +121,8 @@ class Admin extends Controller
             'depart_name' => ['required','regex:/^[a-zA-Z\s]+$/']
             ],
             [
-                'depart_name.required' => 'the field is required',
-                'depart_name.regex' => 'Invalid format the value',
+                'depart_name.required' => 'Nama departemen harus dimasukan',
+                'depart_name.regex' => 'Format nilai salah',
             ]
         );
 
@@ -121,13 +130,13 @@ class Admin extends Controller
         $departemen->nama_departemen = $request->depart_name;
         $departemen->save();
 
-        return redirect('/dashboard')->with('success','Data berhasil diubah');
+        return redirect('/dashboard')->with('success','Data departemen berhasil diubah');
     }
 
     public function DepartDeletePost($id){
         $departemen = Departemen::find($id);
         $departemen->delete();
-        return redirect('/dashboard')->with('success','Data berhasil Dihapus');
+        return redirect('/dashboard')->with('success','Data departemen berhasil Dihapus');
     }
 
 }

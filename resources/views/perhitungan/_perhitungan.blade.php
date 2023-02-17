@@ -10,6 +10,10 @@
 
 @section('title')
     Data Perhitungan
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li class="active">Nilai</li>
+    </ol>
 @endsection
 
 
@@ -19,13 +23,9 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h4>
-                    Data Perhitungan
-                </h4>
-
                 <div >
                      <a href="/karyawan/perhitungan/register" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>Tambah Nilai</a>
-                     <a href="/karyawan/hitung" class="icon btn btn-primary  waves-effect" style="padding:10px 20px 10px 20px; line-height: -10px;">Hitung</a>
+                     {{-- <a href="/karyawan/hitung" class="icon btn btn-primary  waves-effect" style="padding:10px 20px 10px 20px; line-height: -10px;">Hitung</a> --}}
                 </div>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -41,7 +41,7 @@
                 </ul>
             </div>
             <div class="body table-responsive" style="overflow-x: auto;">
-                <table class="table table-condensed">
+                <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
                             <th>No</th>

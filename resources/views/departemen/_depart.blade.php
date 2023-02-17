@@ -9,7 +9,11 @@
 @endsection
 
 @section('title')
-    Data Departemen
+    DATA DEPARTEMEN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashborad</a></li>
+        <li class="active">Data Departemen</li>
+    </ol>
 @endsection
 
 
@@ -19,10 +23,6 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h4>
-                    Data Departemen
-                </h4>
-
                 <div >
                      <a href="/departemen/register" class="icon btn btn-success  waves-effect"> <i class="icon material-icons">add</i>Tambah departemen</a>
                 </div>
@@ -40,11 +40,11 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <table class="table table-condensed">
+                <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Username</th>
+                            <th>Departemen</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

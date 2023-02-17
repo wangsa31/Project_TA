@@ -9,7 +9,12 @@
 @endsection
 
 @section('title')
-    Data Departemen
+    DATA DEPARTEMEN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Departemen</a></li>
+        <li class="active">Ubah Departemen</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -20,9 +25,8 @@
                     <form action="/departemen/ubah" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{$departemen->id}}">
-                        <div class="text-center">Ubah Data Admin</div>
                         <div class="form-group">
-                            <h5>Name</h5>
+                            <h5>Nama</h5>
                              <div class="form-line">
                                  <input type="text" class="form-control  @error('depart_name') is-invalid @enderror" name="depart_name" placeholder="Departemen" value="{{$departemen->nama_departemen}}" />
                              </div>

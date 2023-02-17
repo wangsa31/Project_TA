@@ -10,6 +10,11 @@
 
 @section('title')
     Data Nilai
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Nilai</a></li>
+        <li class="active">Tambah Nilai</li>
+    </ol>
 @endsection
 
 
@@ -26,7 +31,6 @@
                 <div class="container-fluid">
                     <form action="/karyawan/perhitungan" method="POST">
                         @csrf
-                        <div class="text-center">Tambah Data Nilai</div>
                         <div class="col-sm-6">
                                 <div class="form-group">
                                     <h5>Nama Karyawan</h5>
@@ -48,7 +52,7 @@
                             <div class="form-group">
                                 <h5>Act professionalally</h5>
                                  <div class="form-line">
-                                     <input type="number" class="form-control @error('a6') is-invalid @enderror"  name="a6"  placeholder="Tempat lahir" />
+                                     <input type="text" class="form-control @error('a6') is-invalid @enderror"  name="a6"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div>
                                  @error('a6')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -58,7 +62,7 @@
                             <div class="form-group">
                                 <h5>Think guest stifaction first</h5>
                                 <div class="form-line">
-                                    <input type="text" class="form-control @error('a2') is-invalid @enderror" name="a2"  placeholder="" />
+                                    <input type="text" class="form-control @error('a2') is-invalid @enderror" name="a2"  placeholder="masukan nilai diantar 1 - 5" />
                                 </div>
                                 @error('a2')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -68,7 +72,7 @@
                             <div class="form-group">
                                 <h5>Act in findding solutions</h5>
                                 <div class="form-line">
-                                    <input type="text" class="form-control  @error('a7') is-invalid @enderror" name="a7"  placeholder="" />
+                                    <input type="text" class="form-control  @error('a7') is-invalid @enderror" name="a7"  placeholder="masukan nilai diantar 1 - 5" />
                                 </div>
                                 @error('a7')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -78,7 +82,7 @@
                             <div class="form-group">
                                 <h5>Think positive</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('a3') is-invalid @enderror" name="a3"  placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('a3') is-invalid @enderror" name="a3"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div> 
                                  @error('a3')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -88,7 +92,7 @@
                             <div class="form-group">
                                 <h5>Act with transparency & ethics</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('a8') is-invalid @enderror" name="a8"  placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('a8') is-invalid @enderror" name="a8"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div> 
                                  @error('a8')<span class="text-danger">{{ $message }}</span></div>@enderror
                              </div>            
@@ -98,7 +102,7 @@
                             <div class="form-group">
                                 <h5>Think of others</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('a4') is-invalid @enderror" name="a4"  placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('a4') is-invalid @enderror" name="a4"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div> 
                                  @error('a4')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -108,7 +112,7 @@
                             <div class="form-group">
                                 <h5>Act as good citizens at workplace and outside</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('a9') is-invalid @enderror" name="a9"  placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('a9') is-invalid @enderror" name="a9"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div> 
                                  @error('a9')<span class="text-danger">{{ $message }}</span>@enderror
                              </div>            
@@ -118,7 +122,7 @@
                             <div class="form-group">
                                 <h5>Think out of the box</h5>
                                  <div class="form-line">
-                                     <input type="text" class="form-control @error('a5') is-invalid @enderror" name="a5"  placeholder="Departemen" />
+                                     <input type="text" class="form-control @error('a5') is-invalid @enderror" name="a5"  placeholder="masukan nilai diantar 1 - 5" />
                                  </div>
                                  @error('a9')<span class="text-danger">{{ $message }}</span></div>@enderror 
                              </div>            

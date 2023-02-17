@@ -31,11 +31,11 @@ class KaryawanController extends Controller
             'almt'=>['required'],
             ],
             [
-                'name.required' => 'the field is required',
-                'tmp_lahir.required' => 'the field is required',
-                'depart.required' => 'the field is required',
-                'dates'=>'the field is required',
-                'almt'=>'the field is required',
+                'name.required' => 'Nama karyawan harus dimasukan',
+                'tmp_lahir.required' => 'Tempat tanggal lahir harus dimasukan',
+                'depart.required' => 'Departemen harus dimasukan',
+                'dates'=>'Tanggal harus dimasukan',
+                'almt'=>'alamat harus dimasukan',
             ]
         );
 
@@ -46,7 +46,7 @@ class KaryawanController extends Controller
         $karyawan->tanggal_lahir = $request->dates;
         $karyawan->alamat_karyawan = $request->almt;
         $karyawan->save();
-        return redirect('/dashboard')->with('success','Data berhasil ditambahkan');
+        return redirect('/dashboard')->with('success','Data karyawan berhasil disimpan');
 
 
     }
@@ -74,11 +74,11 @@ class KaryawanController extends Controller
             'almt'=>['required'],
             ],
             [
-                'name.required' => 'the field is required',
-                'tmp_lahir.required' => 'the field is required',
-                'depart.required' => 'the field is required',
-                'dates'=>'the field is required',
-                'almt'=>'the field is required',
+                'name.required' => 'Nama karyawan harus dimasukan',
+                'tmp_lahir.required' => 'Tempat tanggal lahir harus dimasukan',
+                'depart.required' => 'Departemen harus dimasukan',
+                'dates'=>'Tanggal harus dimasukan',
+                'almt'=>'alamat harus dimasukan',
             ]
         );
 
@@ -90,12 +90,12 @@ class KaryawanController extends Controller
         $karyawan->alamat_karyawan = $request->almt;
         $karyawan->save();
 
-        return redirect('/dashboard')->with('success','Data berhasil diubah');
+        return redirect('/dashboard')->with('success','Data karyawan berhasil diubah');
     }
 
     public function KaryawanDeletePost($id){
         $karyawan = karyawan::find($id);
         $karyawan->delete();
-        return redirect('/dashboard')->with('success','Data berhasil Dihapus');
+        return redirect('/dashboard')->with('success','Data karyawan berhasil Dihapus');
     }
 }

@@ -14,7 +14,11 @@ class LoginLogout extends Controller
 {
     // Return view Login
     public function Login(){
+        if (Auth::user()) {
+            return redirect("/dashboard");
+        }
         return view('authentication.sign_in',[]);
+        
     }
 
     // Return proses login
@@ -24,11 +28,14 @@ class LoginLogout extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $remember = $request->input('rememberme') ? true : false;
+
+        // dd($remember);
+        if (Auth::attempt($credentials,$remember)) {
             $request->session()->regenerate();
             return redirect('/dashboard');
         }
-        alert()->error('Invalid email and Username');
+        alert()->error('email dan password salah');
 
         return  redirect('/login');
      }

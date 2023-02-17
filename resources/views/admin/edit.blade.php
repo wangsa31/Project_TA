@@ -8,11 +8,19 @@
 {{Auth::user()->email}}
 @endsection
 
+
 @section('title')
-    Data Admin
+    Data Pengguna
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Data Pengguna</a></li>
+        <li class="active">Ubah Pengguna</li>
+    </ol>
 @endsection
 
 @section('content')
+<div class="body">
+    
+</div>
 <div class="card">
     <div class="body">
         <div class="row clearfix">
@@ -20,9 +28,8 @@
                     <form action="/admin/ubah" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{$data->id}}">
-                        <div class="text-center">Ubah Data Admin</div>
                         <div class="form-group">
-                            <h5>Name</h5>
+                            <h5>Nama</h5>
                              <div class="form-line">
                                  <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" placeholder="Username" value="{{$data->name}}" />
                              </div>

@@ -9,7 +9,12 @@
 @endsection
 
 @section('title')
-    Data Karyawan
+    DETAIL KARYAWAN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Karyawan</a></li>
+        <li class="active">Detail Karyawan</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -19,7 +24,6 @@
             <div class="col-sm-12">
                     <form action="/karyawan/register" method="POST">
                         @csrf
-                        <div class="text-center">Detail Data Karyawan</div>
                         <div class="col-sm-6">
                                 <div class="form-group">
                                     <h5>Nama</h5>
@@ -42,7 +46,7 @@
                             <div class="form-group">
                                 <h5>Departemen</h5>
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="tmp_lahir" value="{{ $karyawan->departemen->nama_departemen }}" placeholder="Tempat lahir" disabled />
+                                    <input type="text" class="form-control" name="tmp_lahir" value="{{ $karyawan->departemen->nama_departemen }}" placeholder="Departemen" disabled />
                                 </div>                     
                              </div>            
                         </div> 

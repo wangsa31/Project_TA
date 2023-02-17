@@ -9,7 +9,11 @@
 @endsection
 
 @section('title')
-    Data Perhitungan
+    LAPORAN HASIL PENILAIAN
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li class="active">Hasil Perhitungan</li>
+    </ol>
 @endsection
 
 @section('style_css')
@@ -25,10 +29,6 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h4>
-                    Data Hasil Perhitungan
-                </h4>
-
                 <div >
                      <a href="/konversi/pdf" target="_blank" class="icon btn btn-success  waves-effect">Unduh PDF</a>
                 </div>

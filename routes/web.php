@@ -5,10 +5,10 @@ use App\Http\Controllers\LoginLogout;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PerhitunganController;
-
+// use App\Models\User;
 use App\Models\Karyawan;
 use App\Models\Departemen;
-
+// use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,18 +24,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::redirect("/","/login");
 
+// Route::get("/create",function(){
+//     $user = new User;
+//         $user->name = "admin";
+//         $user->email = "admin@gmail.com";
+//         $user->password = Hash::make(123456);
+//         $user->save();
+//         return redirect("/hello");
+// });
 
+Route::get("/hello",function(){
+    return "ok";
+});
 
 // Route Group admin
-
-
 
 Route::get('/login',[LoginLogout::class, 'Login'])->name('login');
 
     Route::middleware(['auth'])->group(function () {
         
         Route::get('/dashboard', function () {
+            
             $count_departemen = Departemen::all()->count();
             $count_karyawan = Karyawan::all()->count();
             return view('admin.dashboard',['count_dept' => $count_departemen, 'count_kar' => $count_karyawan, ]);

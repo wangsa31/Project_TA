@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Karyawan;
 use App\Models\Nilai;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Hasil;
 
 
 class PerhitunganController extends Controller
@@ -41,6 +42,14 @@ class PerhitunganController extends Controller
                 'numeric'=> "Harap memasukan data dengan benar"
             ]);
 
+            $data = Nilai::find(2);
+           
+            // dd($data);
+            if($data){
+                return redirect("/dashboard")->with("failed","data atas nama ". $data->karyawan->nama_karyawan." sudah tersedia");
+            }
+
+
             $nilai = new Nilai;
             $nilai->karyawan_id = $request->a1;
             $nilai->kriteria_1 = $request->a2;
@@ -52,14 +61,15 @@ class PerhitunganController extends Controller
             $nilai->kriteria_7 = $request->a8;
             $nilai->kriteria_8 = $request->a9;
             $nilai->save();
-            return redirect('/dashboard')->with('success','Nilai berhasil ditambahkan');
+            return redirect('/dashboard')->with('success','Data nilai berhasil disimpan');
     }
 
     
 public function PerhitunganHapus($id){
     $karyawan = Nilai::find($id);
     $karyawan->delete();
-    return redirect('/dashboard')->with('success','Data berhasil Dihapus');
+    
+    return redirect('/dashboard')->with('success','Data nilai berhasil Dihapus');
 }
 
 
@@ -304,7 +314,7 @@ public function HitungPost(){
                 $hasil = 1;
             }
         }
-foreach ($nilai as $nilais) {
+ foreach ($nilai as $nilais) {
     
     array_push($tampung_baik,keanggotaan_k1_baik($nilais->kriteria_1)); 
     array_push($tampung_buruk, keanggotaan_k1_buruk($nilais->kriteria_1));
@@ -456,7 +466,33 @@ foreach ($nilai as $nilais) {
      array_push($alpha,$R25_alpa);
      array_push($R,$R25);
 
+     $R26_alpa = min($tampung_baik[0],$tampung_buruk[1],$tampung_buruk[2],$tampung_buruk[3],$tampung_baik[4],$tampung_buruk[5],$tampung_buruk[6],$tampung_buruk[7]);
+     $R26 = abs(($R26_alpa * 8) - 10);
+     array_push($alpha,$R26_alpa);
+     array_push($R,$R26);
 
+     $R27_alpa = min($tampung_buruk[0],$tampung_baik[1],$tampung_buruk[2],$tampung_baik[3],$tampung_baik[4],$tampung_buruk[5],$tampung_buruk[6],$tampung_buruk[7]);
+     $R27 = abs(($R27_alpa * 8) - 10);
+     array_push($alpha,$R27_alpa);
+     array_push($R,$R27);
+
+     $R28_alpa = min($tampung_buruk[0],$tampung_baik[1],$tampung_baik[2],$tampung_buruk[3],$tampung_buruk[4],$tampung_baik[5],$tampung_buruk[6],$tampung_baik[7]);
+     $R28 = ($R28_alpa * 8) +2;
+     array_push($alpha,$R28_alpa);
+     array_push($R,$R28);
+
+     $R29_alpa = min($tampung_buruk[0],$tampung_baik[1],$tampung_baik[2],$tampung_baik[3],$tampung_baik[4],$tampung_baik[5],$tampung_baik[6],$tampung_buruk[7]);
+     $R29 = ($R29_alpa * 8) +2;
+     array_push($alpha,$R29_alpa);
+     array_push($R,$R29);
+    
+     $R30_alpa = min($tampung_baik[0],$tampung_buruk[1],$tampung_buruk[2],$tampung_buruk[3],$tampung_buruk[4],$tampung_buruk[5],$tampung_buruk[6],$tampung_baik[7]);
+     $R30 = abs(($R30_alpa * 8) - 10);
+     array_push($alpha,$R30_alpa);
+     array_push($R,$R30);
+
+   
+     
 
      $result_alpa_r = 0;
      $result_alpa = 0;
@@ -473,11 +509,17 @@ foreach ($nilai as $nilais) {
      $tampung_buruk=[];
      $alpha = [];
      $R = [];
+    
 
-     $i++;
-    }
+      $i++;
+     }
 
-    return  view('perhitungan_result._result',['nilai'=>$nilai,'data'=>$results]);
+   return  view('perhitungan_result._result',['nilai'=>$nilai,'data'=>$results]);
+    // return dd($tampung_baik);
+     
+    // dd($tampung_buruk);
+    // return "ok";
+    // return  view('perhitungan_result._result',['hasil'=>$hasils]);
    }
 
    public function CetakPdf(){
@@ -883,6 +925,7 @@ array_push($tampung_buruk, keanggotaan_k8_buruk($nilais->kriteria_8));
  }
 
   $result = $result_alpa_r / $result_alpa;
+  
 
  $results[$i] =$result;
  $tampung_baik=[];
@@ -897,8 +940,6 @@ return $pdf->stream();
 
 }
    
-   public function hello(){
-    $this->result_print ="hello";
-    }
+  
 
 }

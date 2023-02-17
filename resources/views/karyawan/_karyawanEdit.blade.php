@@ -10,6 +10,11 @@
 
 @section('title')
     Data Karyawan
+    <ol class="breadcrumb breadcrumb-col-pink">
+        <li><a href="javascript:void(0);">Dashboard</a></li>
+        <li><a href="javascript:void(0);">Karyawan</a></li>
+        <li class="active">Ubah Karyawan</li>
+    </ol>
 @endsection
 
 @section('content')
@@ -20,7 +25,6 @@
                     <form action="/karyawan/ubah" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $karyawan->id}}">
-                        <div class="text-center">Ubah Data Karyawan</div>
                         <div class="col-sm-6">
                                 <div class="form-group">
                                     <h5>Nama</h5>
@@ -50,13 +54,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <h5>Departemen</h5>
-                                <select class="form-control show-tick" name="depart">
-                                    <option value="">-- Please select --</option>
-                                    
+                                <select class="form-control show-tick" name="depart">                                
                                     @foreach ($departemen as $data)
-                                        <option value="{{ $data->id }}" >
+                                    {{-- <option value="">-- Please select --</option> --}}
+                                        <option value="{{ $data->id }}" @selected(old('depart') == $data->id)>
                                             {{ $data->nama_departemen }}
                                         </option>
+                                        
                                     @endforeach
 
                                     
